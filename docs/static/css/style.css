@@ -1,0 +1,567 @@
+/*=====================================================
+  THEME VARIABLES (shared colors, sizes, fonts)
+=====================================================*/
+:root {
+  --bluey: #3B5C7B;
+  --dusk: #595478;
+  --plum: #8B4670;
+  --kiss: #D25B73;
+  --citrus: #FAAA8D;
+
+  --bg: #F6F5FB;
+  --surface: #FFFFFF;
+  --text: #1E2A3A;
+  --muted: #5A6577;
+  --line: rgba(89, 84, 120, 0.14);
+
+  --grad-hero: linear-gradient(135deg, var(--bluey), var(--dusk) 55%, var(--plum));
+  --grad-accent: linear-gradient(90deg, var(--kiss), var(--citrus));
+
+  --radius: 16px;
+  --radius-sm: 12px;
+  --gap: 16px;
+  --pad: 24px;
+  --shadow: 0 6px 24px rgba(59, 92, 123, 0.10);
+  --shadow-hover: 0 12px 32px rgba(89, 84, 120, 0.18);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+
+/*=====================================================
+  BASE (page background, default text)
+=====================================================*/
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  line-height: 1.6;
+  background:
+    radial-gradient(900px 500px at 95% -10%, rgba(250, 170, 141, 0.25), transparent 60%),
+    radial-gradient(800px 500px at -10% 0%, rgba(89, 84, 120, 0.12), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+p { margin: 0; }
+.muted { color: var(--muted); }
+
+a:focus-visible {
+  outline: 3px solid var(--kiss);
+  outline-offset: 2px;
+}
+
+
+/*=====================================================
+  LAYOUT (box positions and sizes)
+  To resize or move a box, edit the grid-template-areas
+=====================================================*/
+.bento {
+  display: grid;
+  gap: var(--gap);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--gap);
+  grid-template-columns: 1fr;
+  /* Phone order (one column) */
+  grid-template-areas:
+    "hero"
+    "resume"
+    "projects"
+    "experience"
+    "skills"
+    "achievements";
+}
+
+@media (min-width: 900px) {
+  :root { --gap: 22px; }
+
+  /* Desktop: 4 columns. A name repeated = that box spans those cells */
+  .bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "hero       hero       resume       resume"
+      "hero       hero       skills       skills"
+      "projects   projects   achievements achievements"
+      "experience experience achievements achievements";
+  }
+}
+
+
+/*=====================================================
+  SHARED BOX STRUCTURE (don't need to touch this)
+  The look of each box is set in its own section below
+=====================================================*/
+.box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover { transform: translateY(-3px); }
+
+/* Top accent line: each box sets its own height and background */
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+}
+
+
+/*=====================================================
+  SHARED BUTTONS AND LINKS
+  (box sections below can override these)
+=====================================================*/
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--plum);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--grad-accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border-color: var(--plum);
+}
+
+.link {
+  color: var(--plum);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover { text-decoration: underline; }
+
+.links, .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+
+/*-----------------------------------------------------
+  hero
+-----------------------------------------------------*/
+.hero {
+  grid-area: hero;
+
+  /* size and spacing */
+  padding: calc(var(--pad) * 1.5);
+  gap: 12px;
+  justify-content: center;
+  min-height: 0;
+
+  /* look */
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 92, 123, 0.75),
+    rgba(89, 84, 120, 0.65) 55%,
+    rgba(139, 70, 112, 0.75)),
+  url("../img/hero.gif") center / cover no-repeat;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line (off for hero: height 0) */
+.hero::before {
+  height: 0;
+  background: var(--grad-accent);
+}
+
+/* peach glow in the corner */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -80px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(250, 170, 141, 0.55), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keeps text above the glow, don't remove */
+.hero > * { position: relative; z-index: 1; }
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
+.hero .meta { opacity: 0.9; }
+
+.hero .education {
+  display: grid;
+  gap: 8px;
+}
+
+/* hero buttons (Email, GitHub, LinkedIn) */
+.hero .btn {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero .btn:hover {
+  background: #fff;
+  color: var(--plum);
+}
+
+
+/*-----------------------------------------------------
+  resume
+-----------------------------------------------------*/
+.resume {
+  grid-area: resume;
+
+  /* size and spacing */
+  padding: var(--pad);
+  gap: 12px;
+  min-height: 0;
+
+  /* look */
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.resume:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line */
+.resume::before {
+  height: 4px;
+  background: var(--grad-accent);
+}
+
+.resume h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--bluey);
+  background: url("../img/anime1.gif") no-repeat;
+  background-size: 35px;
+  background-position: right;
+}
+
+.resume p {
+  color: var(--muted);
+}
+
+/* View button = .btn, Download button = .btn-outline */
+.resume .btn {
+  padding: 10px 18px;
+}
+
+.resume .btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border-color: var(--plum);
+}
+
+.resume .btn:hover {
+  background: var(--grad-accent);
+  color: var(--text);
+}
+
+
+/*-----------------------------------------------------
+  projects
+-----------------------------------------------------*/
+.projects {
+  grid-area: projects;
+
+  /* size and spacing */
+  padding: var(--pad);
+  gap: 12px;
+  min-height: 0;
+
+  /* look */
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.projects:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line */
+.projects::before {
+  height: 4px;
+  background: var(--grad-accent);
+}
+
+.projects h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--bluey);
+  background: url("../img/anime2.gif") no-repeat;
+  background-size: 35px;
+  background-position: right;
+}
+
+/* grid that holds the project cards */
+.projects .card-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .projects .card-grid { grid-template-columns: 1fr 1fr; }
+  /* first project is featured (full width) */
+  .projects .card:first-child { grid-column: 1 / -1; }
+}
+
+/* each project card */
+.projects .card {
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+/* featured (first) card gets a colored left edge */
+.projects .card:first-child { border-left: 4px solid var(--kiss); }
+
+.projects .card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.projects .card p {
+  color: var(--muted);
+}
+
+.projects .card .link {
+  display: inline-block;
+  margin-top: 6px;
+}
+
+
+/*-----------------------------------------------------
+  experience
+-----------------------------------------------------*/
+.experience {
+  grid-area: experience;
+
+  /* size and spacing */
+  padding: var(--pad);
+  gap: 12px;
+  min-height: 0;
+
+  /* look */
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.experience:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line */
+.experience::before {
+  height: 4px;
+  background: var(--grad-accent);
+}
+
+.experience h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--bluey);
+  background: url("../img/anime3.gif") no-repeat;
+  background-size: 35px;
+  background-position: right;
+}
+
+/* each job card */
+.experience .card {
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.experience .card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.experience .card p {
+  color: var(--muted);
+}
+
+/* "for who/where" line */
+.experience .card .place {
+  color: var(--dusk);
+  font-weight: 600;
+}
+
+
+/*-----------------------------------------------------
+  achievements
+-----------------------------------------------------*/
+.achievements {
+  grid-area: achievements;
+
+  /* size and spacing */
+  padding: var(--pad);
+  gap: 12px;
+  min-height: 0;
+
+  /* look */
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.achievements:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line */
+.achievements::before {
+  height: 4px;
+  background: var(--grad-accent);
+}
+
+.achievements h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--bluey);
+  background: url("../img/anime4.gif") no-repeat;
+  background-size: 35px;
+  background-position: right;
+}
+
+/* each achievement card */
+.achievements .card {
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.achievements .card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.achievements .card p {
+  color: var(--muted);
+}
+
+/* place / rank line */
+.achievements .card .place {
+  color: var(--dusk);
+  font-weight: 600;
+}
+
+/* "View certificate" link */
+.achievements .card .link {
+  display: inline-block;
+  margin-top: 6px;
+}
+
+
+/*-----------------------------------------------------
+  skills
+-----------------------------------------------------*/
+.skills {
+  grid-area: skills;
+
+  /* size and spacing */
+  padding: var(--pad);
+  gap: 12px;
+  min-height: 0;
+
+  /* look */
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.skills:hover { box-shadow: var(--shadow-hover); }
+
+/* top accent line */
+.skills::before {
+  height: 4px;
+  background: var(--grad-accent);
+}
+
+.skills h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--bluey);
+  background: url("../img/anime5.gif") no-repeat;
+  background-size: 35px;
+  background-position: right;
+}
+
+.skills table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* every cell */
+.skills td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+/* no line under the last row */
+.skills tr:last-child td { border-bottom: none; }
+
+/* left column (skill category) */
+.skills td:first-child {
+  width: 40%;
+  font-weight: 600;
+  color: var(--bluey);
+}
+
+
+/*=====================================================
+  REDUCED MOTION (accessibility, leave as is)
+=====================================================*/
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .box:hover, .btn:hover { transform: none; }
+}
