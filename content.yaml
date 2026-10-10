@@ -1,0 +1,54 @@
+hero: 
+  name: "Jacqueson Pasang anak James Along"
+  tagline: "I may late to reply, or worse, never."
+
+  education: 
+  - degree: "Bachelor of Software Engineering."
+    school: "Sultan Idris Education University."
+    cgpa: "3.67/4.00."
+  - degree: "Malaysia Higher School Certificate."
+    school: "SMK Engkilili."
+    cgpa: "3.33/4.00."
+
+  links:
+    email: "laisonjac@gmail.com"
+    github: "https://github.com/Jacqueson1"
+    linkedin: "https:www.linkedin.com/in/jacqueson-pasang-a3a2a3347"
+
+projects:
+  - name: "TriageCare"
+    description: "AI powered mobile app that use to detect top 3 of possible disease based on symptoms inserted by users and it will suggest where users should go (clinic,hospital,emergency). The engine utilize XGBoost, ClinicalBERT and Rule-Based model to make classification, detect and convert chief complaint terms and make decision." 
+    github: "TBD"
+  
+  - name: "AZTrackApp"
+    description: "A Mobile app that use to track printing item progress for AZ Printing company. The app utilize 2 frameworks, Flutter for frontend and Laravel for Backend with database using MySQL."
+    github: "TBD"
+
+  - name: "Proforma-Study-Scheduler"
+    description: "A study scheduler that uses Proforma(A paper for current semester subject plan kind of) as input. The input later extracted and optimized/structured using OrTools in table form. Ollama also utilized as chatbot agent using qwen 2.5:7B. UI use Streamlit."
+    github: "https://github.com/Jacqueson1/Proforma-Study-Scheduler"
+
+  - name: "File-Organizing-Agents"
+    description: "AI Agent Mini Projects Series: File Organizing Agents Watches a folder (e.g. Downloads), uses an LLM to classify and rename/move files based on content. Simple to start, but a great intro to tool use (file system as a tool the agent controls). Expandable into a full document-management assistant."
+    github: "https://github.com/Jacqueson1/File-Organizing-Agents"
+
+  - name: "Mambo"
+    description: "An AI-Waifu that created using Laravel and Live2D Cubism. It consist of chatbot, text-to-speech, and moving cute girl avatar. (Its weird, i know)."
+    github: "https://github.com/Jacqueson1/mambo"
+
+experience: 
+  - role: "Software Tester"
+    place: "MyDigitalID and UPSI"
+    description: "Conduct black-box testing to evaluate the functionality and reliability of MyDigitalID integration within the MyGuru System. Collaboratively identify various defects and unwanted outputs to improve the overall functionality especially on Iphone users."
+
+achievement:
+  - name: "Sinnovet"
+    rank: "TBD"
+    certificate: ""
+
+skills:
+  - ["Programming Languages", "Python, C++, PHP, SQL, HTML/CSS/JS, Dart, Java"]
+  - ["Frameworks & Libraries", "Laravel, Flutter, Tauri 2"]
+  - ["Machine Learning", "Scikit Learn, Pandas, NumPy, YOLO"]
+  - ["Databases", "SQLite, MySQL, Firebase"]
+  - ["Dev & Design Tools", "Git, GitHub, VS Code, Figma, Antigravity, Jira"]

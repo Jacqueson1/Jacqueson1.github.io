@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="" UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ content.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <main class="bento">
+
+        <section class="box hero">
+            <h1>{{ content.hero.name }}</h1>
+            <p class="tagline">{{ content.hero.tagline }}</p>
+            <br>
+            <b style="color: #32cd13;">Education</b>
+            <div class="education">
+                {% for edu in content.hero.education %}
+                <p class="meta">
+                    {{ edu.degree }}, {{ edu.school }}
+                    {% if edu.cgpa %}<br>CGPA: {{ edu.cgpa }}{% endif %}
+                </p>
+                {% endfor %}
+            <div>
+            <br>
+            <b style="color: #32cd13">Links</b>
+                    <nav class="links">
+                        <a class="btn" href="mailto:{{ content.hero.links.email }}">Email</a>
+                        <a class="btn" href="{{ content.hero.links.github }}" target="_blank"
+                            rel="noopener noreferrer">GitHub</a>
+                        <a class="btn" href="{{ content.hero.links.linkedin }}" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                    </nav>
+        </section>
+
+        {% if resume_exists %}
+        <section class="box resume">
+            <h2>Resume</h2>
+            <p class="muted">The latest version of my resume, provided in PDF format, contains updated information
+                regarding my academic qualifications, projects, work experience, achievements, technical skills.</p>
+            <div class="actions">
+                <a class="btn" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank"
+                    rel="noopener noreferrer">View</a>
+                <a class="btn btn-outline" href="{{ url_for('static', filename='resume.pdf') }}" download>Download</a>
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="box projects">
+            <h2>Projects</h2>
+            <div class="card-grid">
+                {% for p in content.projects %}
+                <article class="card">
+                    <h3>{{ p.name }}</h3>
+                    <p>{{ p.description }}</p>
+                    {% if p.github %}
+                    <a class="link" href="{{ p.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="box experience">
+            <h2>Work Experience</h2>
+            {% for job in content.experience %}
+            <article class="card">
+                <h3>{{ job.role }}</h3>
+                <i class="place">{{ job.place }}</i>
+                <br>
+                <br>
+                <p>{{ job.description }}</p>
+            </article>
+            {% endfor %}
+        </section>
+
+        <section class="box achievements">
+            <h2>Achievements</h2>
+            {% for a in content.achievements %}
+            <article class="card">
+                <h3>{{ a.name }}</h3>
+                <p class="place">{{ a.rank }}</p>
+                {% if a.certificate %}
+                <a class="link" href="{{ url_for('static', filename='certificates/' ~ a.certificate) }}" target="_blank"
+                    rel="noopener noreferrer">View certificate</a>
+                {% endif %}
+            </article>
+            {% else %}
+            <p class="muted">This section serves as a placeholder for information that has yet to be determined and will
+                be updated once the relevant details have been finalized</p>
+            {% endfor %}
+        </section>
+
+        <section class="box skills">
+            <h2>Technical Skills</h2>
+            <table>
+                {% for row in content.skills %}
+                <tr>
+                    {% for cell in row %}<td>{{ cell }}</td>{% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+
+    </main>
+</body>
+
+</html>
