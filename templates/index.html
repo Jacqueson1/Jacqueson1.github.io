@@ -41,7 +41,7 @@
         <section class="box resume">
             <h2>Resume</h2>
             <p class="muted">The latest version of my resume, provided in PDF format, contains updated information
-                regarding my academic qualifications, projects, work experience, achievements, technical skills.</p>
+                regarding my academic qualifications, projects, work experience, certificates, technical skills.</p>
             <div class="actions">
                 <a class="btn" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank"
                     rel="noopener noreferrer">View</a>
@@ -79,8 +79,8 @@
         </section>
 
         <section class="box achievements">
-            <h2>Achievements</h2>
-            {% for a in content.achievements %}
+            <h2>Certificates</h2>
+            {% for a in content.certificate or content.certificates %}
             <article class="card">
                 <h3>{{ a.name }}</h3>
                 <p class="place">{{ a.rank }}</p>
