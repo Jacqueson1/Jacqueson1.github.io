@@ -77,14 +77,18 @@ a:focus-visible {
 @media (min-width: 900px) {
   :root { --gap: 22px; }
 
-  /* Desktop: 4 columns. A name repeated = that box spans those cells */
+  /* Desktop: 4 columns. Projects spans full width; Experience & Certificates share the bottom row */
   .bento {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       "hero       hero       resume       resume"
       "hero       hero       skills       skills"
-      "projects   projects   achievements achievements"
+      "projects   projects   projects     projects"
       "experience experience achievements achievements";
+  }
+
+  .projects .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
 
