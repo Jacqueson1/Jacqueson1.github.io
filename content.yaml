@@ -32,9 +32,9 @@ projects:
     description: "AI Agent Mini Projects Series: File Organizing Agents Watches a folder (e.g. Downloads), uses an LLM to classify and rename/move files based on content. Simple to start, but a great intro to tool use (file system as a tool the agent controls). Expandable into a full document-management assistant."
     github: "https://github.com/Jacqueson1/File-Organizing-Agents"
 
-  - name: "Mambo"
-    description: "An AI-Waifu that created using Laravel and Live2D Cubism. It consist of chatbot, text-to-speech, and moving cute girl avatar. (Its weird, i know)."
-    github: "https://github.com/Jacqueson1/mambo"
+  - name: "NIMO"
+    description: "A local AI chatbot with an animated Live2D avatar, as desktop app"
+    github: "https://github.com/Jacqueson1/NIMO.git"
 
 experience: 
   - role: "Software Tester"
