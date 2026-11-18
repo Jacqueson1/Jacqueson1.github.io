@@ -24,9 +24,9 @@ projects:
     description: "A Mobile app that use to track printing item progress for AZ Printing company. The app utilize 2 frameworks, Flutter for frontend and Laravel for Backend with database using MySQL."
     github: "https://github.com/YuQiez/AZTracking.git"
 
-  - name: "Proforma-Study-Scheduler"
-    description: "A study scheduler that uses Proforma(A paper for current semester subject plan kind of) as input. The input later extracted and optimized/structured using OrTools in table form. Ollama also utilized as chatbot agent using qwen 2.5:7B. UI use Streamlit."
-    github: "https://github.com/Jacqueson1/Proforma-Study-Scheduler"
+  - name: "Study Agent"
+    description: "An intelligent study scheduling system that converts academic proforma documents into personalized study plans, manages assessment preparation, and provides and AI assisted for schedule management."
+    github: "https://github.com/Jacqueson1/study-agent.git"
 
   - name: "File-Organizing-Agents"
     description: "AI Agent Mini Projects Series: File Organizing Agents Watches a folder (e.g. Downloads), uses an LLM to classify and rename/move files based on content. Simple to start, but a great intro to tool use (file system as a tool the agent controls). Expandable into a full document-management assistant."
@@ -39,6 +39,26 @@ projects:
   - name: "Weather Device"
     description: "A weather app, that utilize MET Malaysia public api for forecasting"
     github: "https://github.com/Jacqueson1/MobileWeatherDevice.git"
+
+  - name: "LifeQuestRPG"
+    description: "A gamified task management application that transform everyday responsibilities in quests. Complete daily quests and to-do tasks, ern experience points, build streaks, and level up your character as you make progress in real life."
+    github: "https://github.com/Jacqueson1/LifeQuestRPG.git"
+
+  - name: "Expense Tracker"
+    description: "A personal expense tracking web application with a cozy sakura-inspired interface. Record daily expenses, organize spending by category, and monitor your total expenditure through a simple dashboard."
+    github: "https://github.com/Jacqueson1/expense-tracker.git"
+
+  - name: "SEDOCSIDE 2"
+    description: "Generate structured software engineering documents through automated projects analysis and AI-assisted documentation."
+    github: "https://github.com/Jacqueson1/SEDOCSIDE_2.git"
+
+  - name: "Mambo"
+    description: "An interactive AI companion featuring a Live2D avatar, real-time chat responses, voice interaction, and an anime-inspired personality."
+    github: "https://github.com/Jacqueson1/mambo.git"
+
+  - name: "University Lost & Found"
+    description: "A web-based platform that helps students report found belongings, search for missing items, and submit ownership claims. Administrator can review claims and manage reported items through a dedicated dashboard."
+    github: "https://github.com/Jacqueson1/university-lost-and-found.git"
 
 experience: 
   - role: "Software Tester"
