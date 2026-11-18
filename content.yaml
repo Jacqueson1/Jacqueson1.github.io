@@ -46,9 +46,13 @@ experience:
     description: "Conduct black-box testing to evaluate the functionality and reliability of MyDigitalID integration within the MyGuru System. Collaboratively identify various defects and unwanted outputs to improve the overall functionality especially on Iphone users."
 
 certificate:
-  - name: "Sinnovet"
-    rank: "TBD"
+  - name: "Coding Kickstart | UPSI"
+    rank: "Participant"
     certificate: "E-CERTIFICATE (PARTICIPANT).pdf"
+
+  - name: "Laravel Mastery | UPSI"
+    rank: "Participant"
+    certificate: "Laravel-Mastery-Cert.pdf"
 
 skills:
   - ["Programming Languages", "Python, HTML/CSS/JS, PHP, SQL, Dart, Java, C++"]
