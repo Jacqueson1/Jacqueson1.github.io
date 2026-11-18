@@ -1,6 +1,6 @@
 hero: 
   name: "Jacqueson Pasang anak James Along"
-  tagline: "I may late to reply, or worse, never."
+  tagline: "A Software Engineering Student who like to explore."
 
   education: 
   - degree: "Bachelor of Software Engineering."
@@ -22,7 +22,7 @@ projects:
   
   - name: "AZTrackApp"
     description: "A Mobile app that use to track printing item progress for AZ Printing company. The app utilize 2 frameworks, Flutter for frontend and Laravel for Backend with database using MySQL."
-    github: "TBD"
+    github: "https://github.com/YuQiez/AZTracking.git"
 
   - name: "Proforma-Study-Scheduler"
     description: "A study scheduler that uses Proforma(A paper for current semester subject plan kind of) as input. The input later extracted and optimized/structured using OrTools in table form. Ollama also utilized as chatbot agent using qwen 2.5:7B. UI use Streamlit."
@@ -35,6 +35,10 @@ projects:
   - name: "NIMO"
     description: "A local AI chatbot with an animated Live2D avatar, as desktop app"
     github: "https://github.com/Jacqueson1/NIMO.git"
+
+  - name: "Weather Device"
+    description: "A weather app, that utilize MET Malaysia public api for forecasting"
+    github: "https://github.com/Jacqueson1/MobileWeatherDevice.git"
 
 experience: 
   - role: "Software Tester"
@@ -52,3 +56,4 @@ skills:
   - ["Machine Learning", "Scikit Learn, Pandas, NumPy, YOLO"]
   - ["Databases", "SQLite, MySQL, Firebase"]
   - ["Dev & Design Tools", "Git, GitHub, VS Code, Figma, Antigravity, Jira"]
+  - ["Others", "Live2DCubism"]
