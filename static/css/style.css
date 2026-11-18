@@ -470,10 +470,24 @@ a:focus-visible {
 
 /* each achievement card */
 .achievements .card {
-  padding: 16px;
+  padding: 16px 20px;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievements .card:hover {
+  border-color: rgba(139, 70, 112, 0.3);
+}
+
+.achievements .card .card-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .achievements .card h3 {
@@ -489,6 +503,39 @@ a:focus-visible {
 .achievements .card .place {
   color: var(--dusk);
   font-weight: 600;
+}
+
+/* "View certificate" icon button at far right */
+.achievements .card .cert-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--plum);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(89, 84, 120, 0.08);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.achievements .card .cert-link:hover {
+  background: var(--grad-accent);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 4px 14px rgba(210, 91, 115, 0.25);
+}
+
+.achievements .card .cert-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
 }
 
 /* "View certificate" link */

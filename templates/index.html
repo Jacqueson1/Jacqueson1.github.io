@@ -82,11 +82,19 @@
             <h2>Certificates</h2>
             {% for a in content.certificate or content.certificates %}
             <article class="card">
-                <h3>{{ a.name }}</h3>
-                <p class="place">{{ a.rank }}</p>
-                {% if a.certificate %}
-                <a class="link" href="{{ url_for('static', filename='certificates/' ~ a.certificate) }}" target="_blank"
-                    rel="noopener noreferrer">View certificate</a>
+                <div class="card-info">
+                    <h3>{{ a.name }}</h3>
+                    <p class="place">{{ a.rank }}</p>
+                </div>
+                {% set cert_href = a.certificate_url if a.certificate_url else (url_for('static', filename=a.certificate_file) if a.certificate_file else '') %}
+                {% if cert_href %}
+                <a class="cert-link" href="{{ cert_href }}" target="_blank"
+                    rel="noopener noreferrer" title="View Certificate" aria-label="View Certificate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </a>
                 {% endif %}
             </article>
             {% else %}
